@@ -23,7 +23,7 @@ public class MemberController {
 
     // 로그인
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody @Valid LoginReqDto loginReqDto) {
+    public ResponseEntity<?> login(@RequestBody LoginReqDto loginReqDto) {
         return memberService.loginAccount(loginReqDto);
     }
 

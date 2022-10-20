@@ -1,6 +1,6 @@
 package com.sparta.invisible_project.repository;
 
-import com.sparta.invisible_project.model.RefreshToken;
+import com.sparta.invisible_project.security.RefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

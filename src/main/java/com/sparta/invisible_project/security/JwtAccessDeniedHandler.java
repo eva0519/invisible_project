@@ -15,6 +15,6 @@ public class JwtAccessDeniedHandler implements AccessDeniedHandler {
     public void handle(HttpServletRequest req, HttpServletResponse res, AccessDeniedException ade)
             throws IOException {
         // 필요한 권한이 없이 접근하려 할때 403
-        res.sendError(HttpServletResponse.SC_FORBIDDEN);
+        res.sendError(HttpServletResponse.SC_FORBIDDEN, "인가되지 않은 토큰입니다");
     }
 }

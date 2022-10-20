@@ -3,56 +3,57 @@ Accept: application/json
 Refresh_Token:
 
 ###
-POST http://localhost:8090/api/account/login
+POST http://localhost:8090/api/signup
 Content-Type: application/json
 
 {
-  "email": "wonbin@mail.com",
-  "password": "bin1234"
+  "username": "kyt12345",
+  "password": "kyt12345",
+  "passwordConfirm": "kyt12345",
+  "email": "kyt12345@mail.com"
 }
 
 ###
-POST http://localhost:8090/api/account/signup
+POST http://localhost:8090/api/login
 Content-Type: application/json
 
 {
-  "username": "wonbin@mail.com",
-  "password": "bin1234"
+  "username": "kyt12345",
+  "password": "kyt12345"
 }
 
 ###
-POST http://localhost:8090/api/save/course
+POST http://localhost:8090/api/reissue
 Content-Type: application/json
-Access_Token:
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreXQxMjM0NSIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NjYxOTk3NDl9.VzQoPlWLcJEUNYsD7ryp7WJ4wMfJuuEkDaE7OOwRZcU
 
 {
-  "title": "Spring Basic CRUD API",
-  "instructors": "최원빈 튜터",
-  "cost": 77777
+  "accessToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreXQxMjM0NSIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NjYxOTk3NDl9.VzQoPlWLcJEUNYsD7ryp7WJ4wMfJuuEkDaE7OOwRZcU",
+  "refreshToken": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreXQxMjM0NSIsImV4cCI6MTY2NjgwMjc0OX0.Sn2N-lSymBXPxdOiB_T-dFDxnaQGi6TBbp4firXctSQ"
 }
 
 ###
-GET http://localhost:8090/api/get/courses
+GET http://localhost:8090/api/boards
 Accept: application/json
-Access_Token:
+Authorization:Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJreXQxMjM0IiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjE5NzI5N30.M2ZV7bIueGIi702KvwZr0JZgvb10_8a3f-LmZEW5jMI
 
 ###
-GET http://localhost:8090/api/get/course/9
+GET http://localhost:8090/api/board/{id}
 Accept: application/json
-Access_Token:
+Authorization:
 
 ###
-PUT http://localhost:8090/api/update/course/9
+PUT http://localhost:8090/api/board/{id}
 Content-Type: application/json
-Access_Token:
+Authorization:
 
 {
   "title": "JPA"
 }
 
 ###
-DELETE http://localhost:8090/api/delete/course/9
+DELETE http://localhost:8090/api/board/{id}
 Accept: application/json
-Access_Token:
+Authorization:
 
 ###

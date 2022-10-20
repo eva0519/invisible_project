@@ -1,7 +1,6 @@
 package com.sparta.invisible_project.security;
 
-import com.sparta.invisible_project.model.Authority;
-import com.sparta.invisible_project.model.Member;
+import com.sparta.invisible_project.entity.Member;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

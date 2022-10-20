@@ -1,9 +1,9 @@
 package com.sparta.invisible_project.service;
 
 import com.sparta.invisible_project.dto.*;
-import com.sparta.invisible_project.model.Authority;
-import com.sparta.invisible_project.model.Member;
-import com.sparta.invisible_project.model.RefreshToken;
+import com.sparta.invisible_project.security.Authority;
+import com.sparta.invisible_project.entity.Member;
+import com.sparta.invisible_project.security.RefreshToken;
 import com.sparta.invisible_project.repository.MemberRepository;
 import com.sparta.invisible_project.repository.RefreshTokenRepository;
 import com.sparta.invisible_project.security.JwtFilter;
@@ -50,13 +50,14 @@ public class MemberService implements UserDetailsService {
         String username = signupReqDto.getUsername();
         String password = signupReqDto.getPassword();
         String passwordConfirm = signupReqDto.getPasswordConfirm();
+        String email = signupReqDto.getEmail();
         if(memberRepository.existsByUsername(username)) {
             throw new RuntimeException("이미 가입된 유저입니다");
         }
         if(!password.equals(passwordConfirm)) {
             throw new RuntimeException("비밀번호와 비밀번호 확인이 일치하지 않습니다");
         }
-        Member member = new Member(username, passwordEncoder.encode(password), Authority.ROLE_USER);
+        Member member = new Member(username, passwordEncoder.encode(password), email, Authority.ROLE_USER);
         return ResponseDto.success(memberRepository.save(member));
     }
 

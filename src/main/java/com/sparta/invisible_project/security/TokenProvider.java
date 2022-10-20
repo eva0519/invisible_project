@@ -1,7 +1,7 @@
 package com.sparta.invisible_project.security;
 
 import com.sparta.invisible_project.dto.TokenDto;
-import com.sparta.invisible_project.model.Member;
+import com.sparta.invisible_project.entity.Member;
 import com.sparta.invisible_project.repository.MemberRepository;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;

@@ -1,4 +1,4 @@
-package com.sparta.invisible_project.model;
+package com.sparta.invisible_project.entity;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
