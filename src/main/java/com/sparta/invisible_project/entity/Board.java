@@ -1,13 +1,11 @@
 package com.sparta.invisible_project.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.sparta.invisible_project.dto.BoardReqDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import org.hibernate.annotations.Formula;
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,6 +15,12 @@ import java.util.List;
 @NoArgsConstructor
 // 대다 관계성 형성에 의한 무한 참조를 막아주는 어노테이션
 public class Board extends Timestamped {
+
+    @Formula("(select count(1) from comments bc where bc.board_id = id)")
+    private int totalCommentCount;
+
+    @Formula("(select count(1) from heart bc where bc.board_id = id)")
+    private int totalHeartCount;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
