@@ -15,7 +15,6 @@ import java.util.List;
 @Setter
 @Entity
 @NoArgsConstructor
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class)
 // 대다 관계성 형성에 의한 무한 참조를 막아주는 어노테이션
 public class Board extends Timestamped {
 

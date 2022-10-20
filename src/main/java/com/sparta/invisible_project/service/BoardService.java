@@ -1,5 +1,6 @@
 package com.sparta.invisible_project.service;
 
+import com.sparta.invisible_project.dto.BoardCommentResDto;
 import com.sparta.invisible_project.dto.BoardReqDto;
 import com.sparta.invisible_project.dto.ResponseDto;
 import com.sparta.invisible_project.entity.Board;
@@ -29,22 +30,8 @@ public class BoardService {
 
     // 게시판 전부 불러오기 (+댓글)
     @Transactional
-    public List<Board> getBoardList() {
-
-        List<Board> boardList;
-        try {
-            boardList = boardRepository.findAllByOrderByIdDesc();
-            List<Comments> commentsList;
-            for(Board board:boardList) {
-                commentsList = commentRepository.findAllByBoard(board);
-                board.updateCommentList(commentsList);
-                System.out.println(board.getModifiedAt());
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-// 게시글 modifiedAt 계속 바뀜 짜증남
-        return boardList;
+    public BoardCommentResDto getBoardList() {
+        return new BoardCommentResDto(boardRepository.findAllByOrderByModifiedAtDesc());
     }
 
     // 게시판 페이저로 불러오기
